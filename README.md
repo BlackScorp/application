@@ -54,3 +54,8 @@ to
 
 rename the class to Controller_Test call localhost/projectname/index.php?/Test 
 
+change $version in
+
+    project/public/index.php 
+
+if youre using another Kohana Version
