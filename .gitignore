@@ -48,6 +48,6 @@ code_coverage
 coverage
 kohana_release
 build
-/application/config/*.php
-/application/cache/*.php
+application/config/*.php
+application/cache/*.php
 

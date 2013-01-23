@@ -12,6 +12,7 @@
         <meta name="author" content="<?= $author ?>">
         <meta name="keywords" content="<?= $keywords ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php foreach ($less as $file) echo HTML::less('assets/less/' . $file) . "\n"; ?>
         <?php foreach ($styles as $file) echo HTML::style('assets/css/' . $file) . "\n"; ?>
         <?php foreach ($icons as $file) echo HTML::icon('assets/ico/' . $file['href'],$file['attr']) . "\n";?>
     </head>
@@ -21,6 +22,13 @@
         <![endif]-->
         <?= $body ?>
         <?php foreach ($scripts as $file) echo HTML::script('assets/js/' . $file) . "\n";?>
+        <?php if (Kohana::$environment === Kohana::DEVELOPMENT): ?>
+            <script>
+                //Disable Less Cache;
+                less.env = "development";
+                less.watch();
+            </script>
+        <?php endif;?>
         <?php if (Kohana::$environment === Kohana::PRODUCTION): ?>
             <script>
                 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
