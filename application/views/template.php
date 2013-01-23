@@ -12,6 +12,7 @@
         <meta name="author" content="<?= $author ?>">
         <meta name="keywords" content="<?= $keywords ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="<?= URL::base('http')?>">
         <?php foreach ($less as $file) echo HTML::less('assets/less/' . $file) . "\n"; ?>
         <?php foreach ($styles as $file) echo HTML::style('assets/css/' . $file) . "\n"; ?>
         <?php foreach ($icons as $file) echo HTML::icon('assets/ico/' . $file['href'],$file['attr']) . "\n";?>
