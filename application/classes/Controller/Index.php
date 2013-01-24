@@ -78,7 +78,24 @@ class Controller_Index extends Controller_Template {
      * @var String $body
      */
     protected $body = 'layouts/body';
-
+    /**
+     * Global Messages
+     * @example 
+     * //validation exception
+     * try{
+     * $user->save();
+     * }catch(ORM_Validation_Exception $e){
+     * $this->alert['login_error']= $e->errors();
+     * }
+     * //usage in any view
+     * 
+     * if(Arr::get($alert,'login_error')){
+     *  echo Debug::vars(Arr::path($alert,'login_error.username');
+     * }
+     * @var Array $alert 
+     */
+    protected $alert = array();
+    
     public function before() {
         
       
@@ -119,7 +136,7 @@ class Controller_Index extends Controller_Template {
     }
 
     public function after() {
-
+        View::set_global('alert', $this->alert);
         if ($this->auto_render) {
             $body = View::factory($this->body);
             $body->content = $this->content;
