@@ -1,5 +1,5 @@
 <?php
-$version = '3.3';
+$version = '3.2';
 
 /**
  * The directory in which your application specific resources are located.

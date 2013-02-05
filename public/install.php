@@ -57,15 +57,15 @@ else
 	<table cellspacing="0">
 		<tr>
 			<th>PHP Version</th>
-			<?php if (version_compare(PHP_VERSION, '5.3.3', '>=')): ?>
+			<?php if (version_compare(PHP_VERSION, '5.2.3', '>=')): ?>
 				<td class="pass"><?php echo PHP_VERSION ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">Kohana requires PHP 5.3.3 or newer, this version is <?php echo PHP_VERSION ?>.</td>
+				<td class="fail">Kohana requires PHP 5.2.3 or newer, this version is <?php echo PHP_VERSION ?>.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
 			<th>System Directory</th>
-			<?php if (is_dir(SYSPATH) AND is_file(SYSPATH.'classes/Kohana'.EXT)): ?>
+			<?php if (is_dir(SYSPATH) AND is_file(SYSPATH.'classes/kohana'.EXT)): ?>
 				<td class="pass"><?php echo SYSPATH ?></td>
 			<?php else: $failed = TRUE ?>
 				<td class="fail">The configured <code>system</code> directory does not exist or does not contain required files.</td>
