@@ -3,17 +3,17 @@
 // -- Environment setup --------------------------------------------------------
 
 // Load the core Kohana class
-require SYSPATH.'classes/Kohana/Core'.EXT;
+require SYSPATH.'classes/kohana/core'.EXT;
 
-if (is_file(APPPATH.'classes/Kohana'.EXT))
+if (is_file(APPPATH.'classes/kohana'.EXT))
 {
 	// Application extends the core
-	require APPPATH.'classes/Kohana'.EXT;
+	require APPPATH.'classes/kohana'.EXT;
 }
 else
 {
 	// Load empty core extension
-	require SYSPATH.'classes/Kohana'.EXT;
+	require SYSPATH.'classes/kohana'.EXT;
 }
 
 /**
