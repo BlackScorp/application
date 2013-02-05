@@ -93,7 +93,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   =>  dirname($_SERVER['SCRIPT_NAME']).'/',
-        'index_file' => Kohana::$environment === Kohana::PRODUCTION?FALSE:'index.php',
+        'index_file' => FALSE,
         'caching'    => Kohana::$environment === Kohana::PRODUCTION,
         'profile'    =>Kohana::$environment !== Kohana::PRODUCTION
 ));
