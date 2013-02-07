@@ -3,17 +3,17 @@
 // -- Environment setup --------------------------------------------------------
 
 // Load the core Kohana class
-require SYSPATH.'classes/Kohana/Core'.EXT;
+require SYSPATH.'classes/kohana/core'.EXT;
 
-if (is_file(APPPATH.'classes/Kohana'.EXT))
+if (is_file(APPPATH.'classes/kohana'.EXT))
 {
 	// Application extends the core
-	require APPPATH.'classes/Kohana'.EXT;
+	require APPPATH.'classes/kohana'.EXT;
 }
 else
 {
 	// Load empty core extension
-	require SYSPATH.'classes/Kohana'.EXT;
+	require SYSPATH.'classes/kohana'.EXT;
 }
 
 /**
@@ -93,7 +93,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   =>  dirname($_SERVER['SCRIPT_NAME']).'/',
-        'index_file' => Kohana::$environment === Kohana::PRODUCTION?FALSE:'index.php',
+        'index_file' => FALSE,
         'caching'    => Kohana::$environment === Kohana::PRODUCTION,
         'profile'    =>Kohana::$environment !== Kohana::PRODUCTION
 ));
