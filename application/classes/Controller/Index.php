@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * 
+ * Main Front Controller.
  */
 class Controller_Index extends Controller_Template {
     /**
@@ -85,12 +85,12 @@ class Controller_Index extends Controller_Template {
      * try{
      * $user->save();
      * }catch(ORM_Validation_Exception $e){
-     * $this->alert['login_error']= $e->errors();
+     * $this->alert['error']['login]= $e->errors();
      * }
      * //usage in any view
      * 
-     * if(Arr::get($alert,'login_error')){
-     *  echo Debug::vars(Arr::path($alert,'login_error.username');
+     * if(isset($error) AND Arr::get($error,'login')){
+     *  echo Debug::vars(Arr::path($error,'login.username');
      * }
      * @var Array $alert 
      */
@@ -110,6 +110,7 @@ class Controller_Index extends Controller_Template {
         {
             $this->scripts['less'] = 'vendor/less.min.js';
             $this->less['bootstrap'] = 'bootstrap.less';
+            $this->less['bootstrap-responsive'] = 'responsive.less';
         }
         elseif (Kohana::$environment === Kohana::PRODUCTION)
         {
@@ -136,7 +137,7 @@ class Controller_Index extends Controller_Template {
     }
 
     public function after() {
-        View::set_global('alert', $this->alert);
+        View::set_global($this->alert);
         if ($this->auto_render) {
             $body = View::factory($this->body);
             $body->content = $this->content;
